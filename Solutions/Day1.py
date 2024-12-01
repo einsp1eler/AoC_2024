@@ -1,4 +1,4 @@
-with open('Day1.txt', 'r') as inputfile:
+with open('Input/Day1.txt', 'r') as inputfile:
     lines = inputfile.readlines()
 
 left_nums = sorted([int(line.split()[0]) for line in lines])
