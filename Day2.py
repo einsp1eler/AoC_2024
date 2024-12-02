@@ -3,7 +3,7 @@ def report_is_safe(report):
     
     return all(1 <= diff <= 3 for diff in differences) or all(-3 <= diff <= -1 for diff in differences)
 
-def report_is_toleratable(report):
+def report_is_tolerable(report):
     for i in range(len(report)):
         if report_is_safe(report[:i] + report[i + 1:]): return True
     return False
@@ -16,5 +16,5 @@ lines = [[int(x) for x in line.split()] for line in lines]
 safe_reports = sum(1 for line in lines if report_is_safe(line))
 print(safe_reports)
 
-tolerated_reports = sum(1 for line in lines if report_is_toleratable(line))
+tolerated_reports = sum(1 for line in lines if report_is_tolerable(line))
 print(tolerated_reports)
