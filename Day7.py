@@ -2,11 +2,15 @@ with open('Input/Day7.txt', 'r') as inputfile:
     input = inputfile.readlines()
 
 def is_addable(result, interim, numlist, i):
+    if interim > result:
+        return False
     if i == len(numlist):
         return result == interim
     return is_addable(result, interim + numlist[i], numlist, i + 1) or is_addable(result, interim * numlist[i], numlist, i + 1)
     
 def is_addable_part2(result, interim, numlist, i):
+    if interim > result:
+        return False
     if i == len(numlist):
         return result == interim
     return is_addable_part2(result, interim + numlist[i], numlist, i + 1) or is_addable_part2(result, interim * numlist[i], numlist, i + 1) or is_addable_part2(result, int(f'{interim}{numlist[i]}'), numlist, i + 1)
