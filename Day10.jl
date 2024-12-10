@@ -1,25 +1,18 @@
 function navigate_grid(vec, input, num, targets, part)
-    if vec[1] < 1 || vec[1] > length(input) || vec[2] < 1 || vec[2] > length(input[1])
+    if vec[1] < 1 || vec[1] > length(input) || vec[2] < 1 || vec[2] > length(input[1]) || input[vec[1]][vec[2]] != num || vec in targets
         return 0
-    end
-    if input[vec[1]][vec[2]] == num && num == 9
-        if part == 1
-            if !(vec in targets)
-                push!(targets, vec)
-                return 1
-            end
-            return 0
-        end
-        return 1
     end
     sum = 0
     if input[vec[1]][vec[2]] == num
-        sum += navigate_grid(vec+[0, 1], input, num+1, targets, part)
-        sum += navigate_grid(vec+[1, 0], input, num+1, targets, part)
-        sum += navigate_grid(vec+[0, -1], input, num+1, targets, part)
-        sum += navigate_grid(vec+[-1, 0], input, num+1, targets, part)
-    else
-        return 0
+        if num == 9
+            part == 1 && push!(targets, vec)
+            return 1
+        else
+            sum += navigate_grid(vec+[0, 1], input, num+1, targets, part)
+            sum += navigate_grid(vec+[1, 0], input, num+1, targets, part)
+            sum += navigate_grid(vec+[0, -1], input, num+1, targets, part)
+            sum += navigate_grid(vec+[-1, 0], input, num+1, targets, part)
+        end
     end
 
     return sum
