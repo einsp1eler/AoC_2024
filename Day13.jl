@@ -1,6 +1,6 @@
 using LinearSolve
 
-is_int(num) = return abs(num - round(num)) < 1e-4
+is_int(num) = abs(num - round(num)) < 1e-4
 
 function solve_system(nums_x, nums_y, results_x, results_y)
     result = 0
