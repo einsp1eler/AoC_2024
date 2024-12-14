@@ -18,8 +18,6 @@ while unfinished_p1 || unfinished_p2
     end
 
     if it == 100
-        filter!(x -> x[1] != (grid_x-1)/2 && x[2] != (grid_y-1)/2, new_pos_list)
-
         q1 = sum(1 for vec in new_pos_list if vec[1] < (grid_x-1)/2 && vec[2] < (grid_y-1)/2)
         q2 = sum(1 for vec in new_pos_list if vec[1] > (grid_x-1)/2 && vec[2] < (grid_y-1)/2)
         q3 = sum(1 for vec in new_pos_list if vec[1] < (grid_x-1)/2 && vec[2] > (grid_y-1)/2)
