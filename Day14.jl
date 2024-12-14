@@ -29,7 +29,7 @@ while unfinished_p1 || unfinished_p2
     end
 
     lengths = sort([length(Set(val)) for val in values(coorddict)], rev=true)
-    if lengths[2] > 31
+    if lengths[2] > 30
         println(it)
         global unfinished_p2 = false
     end
