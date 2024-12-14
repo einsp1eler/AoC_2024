@@ -8,7 +8,6 @@ grid_y = 103
 it = 1
 unfinished_p1 = true
 unfinished_p2 = true
-start = time()
 while unfinished_p1 || unfinished_p2
     new_pos_list = []
     coorddict = Dict()
@@ -17,7 +16,7 @@ while unfinished_p1 || unfinished_p2
         push!(new_pos_list, [mod(new_vector[1], grid_x), mod(new_vector[2], grid_y)])
         push!(get!(coorddict, new_pos_list[i][2], Vector()), new_pos_list[i][1])
     end
-    
+
     if it == 100
         filter!(x -> x[1] != (grid_x-1)/2 && x[2] != (grid_y-1)/2, new_pos_list)
 
